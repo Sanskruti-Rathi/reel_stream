@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1066839315758",
+    "project_id": "reelstream1644",
+    "storage_bucket": "reelstream1644.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1066839315758:android:10a82ef3cdd930461a96bf",
+        "android_client_info": {
+          "package_name": "com.example.reel_stream"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_LQ5GhBOfuwomC7jCJ3V2Skar7lZWBnw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
