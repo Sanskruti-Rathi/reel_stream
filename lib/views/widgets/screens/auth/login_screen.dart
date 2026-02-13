@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:reel_stream/constants.dart';
+import 'package:reel_stream/views/widgets/screens/auth/signup_screen.dart';
 import 'package:reel_stream/views/widgets/text_input_field.dart';
+
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
@@ -83,7 +86,7 @@ class LoginScreen extends StatelessWidget {
                 InkWell(
                   onTap: ()
                   {
-                    print("navigating user");
+                    Get.to(()=> SignupScreen());
                   },
                   child: Text(
                     "Register",

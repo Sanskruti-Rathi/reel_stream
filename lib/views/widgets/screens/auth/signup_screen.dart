@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:reel_stream/constants.dart';
+import 'package:reel_stream/views/widgets/screens/auth/login_screen.dart';
 import 'package:reel_stream/views/widgets/text_input_field.dart';
 
 
@@ -31,26 +33,29 @@ class SignupScreen extends StatelessWidget {
             ),),
             const SizedBox(height: 25),
             Stack(
-              children: [
-                const CircleAvatar(
-                  radius: 64,
-                  backgroundImage: NetworkImage(
-                      "https://www.shutterstock.com/shutterstock/photos/2470054311/display_1500/stock-vector-avatar-gender-neutral-silhouette-vector-illustration-profile-picture-no-image-for-social-media-2470054311.jpg",
-                  ),
-                  backgroundColor: Colors.black,
-                ),
-                Positioned(
-                  bottom: -10,
-                  left: 80,
-                  child: IconButton(
-                    onPressed:() => authContoller.pickImage(),
-                    icon: const Icon(
-                        Icons.add_a_photo
-                    ),
-                  ),
-                ),
-              ],
-            ),
+  children: [
+    Obx(() {
+      return CircleAvatar(
+        radius: 64,
+        backgroundImage: authContoller.profilePhoto == null
+            ? const NetworkImage(
+                "https://www.shutterstock.com/shutterstock/photos/2470054311/display_1500/stock-vector-avatar-gender-neutral-silhouette-vector-illustration-profile-picture-no-image-for-social-media-2470054311.jpg",
+              )
+            : MemoryImage(authContoller.profilePhoto!)
+                as ImageProvider,
+        backgroundColor: Colors.black,
+      );
+    }),
+    Positioned(
+      bottom: -10,
+      left: 80,
+      child: IconButton(
+        onPressed: () => authContoller.pickImage(),
+        icon: const Icon(Icons.add_a_photo),
+      ),
+    ),
+  ],
+),
            const SizedBox(height: 15),
            Container(
              width: MediaQuery.of(context).size.width,
@@ -116,7 +121,7 @@ class SignupScreen extends StatelessWidget {
                 ),),
                 InkWell(
                   onTap: (){
-                    print("navigating user");
+                    Get.off(()=> LoginScreen());
                   },
                   child: Text("Login",
                   style: TextStyle(

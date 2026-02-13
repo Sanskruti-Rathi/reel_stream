@@ -15,7 +15,8 @@ class AuthController extends GetxController {
   static AuthController instance = Get.find();
 
    late Rx<User?>_user;
-   late Rx<Uint8List?> _pickedImage;
+   var _pickedImage = Rx<Uint8List?>(null);
+
 
 Uint8List? get profilePhoto => _pickedImage.value;
 
@@ -41,12 +42,14 @@ Uint8List? get profilePhoto => _pickedImage.value;
 
   if (pickedImage != null) {
     Uint8List bytes = await pickedImage.readAsBytes();
-    _pickedImage = Rx<Uint8List?>(bytes);
+    _pickedImage.value = bytes;   // ✅ update value
 
     Get.snackbar(
-        "Profile Picture", "You have successfully selected your profile picture!");
+        "Profile Picture",
+        "You have successfully selected your profile picture!");
   }
 }
+
 
   
 //registering the user 
