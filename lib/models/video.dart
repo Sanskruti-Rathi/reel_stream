@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Video {
-  String  username;
+  String username;
   String uid;
   String id;
   List likes;
@@ -39,23 +41,21 @@ class Video {
         "profilePhoto": profilePhoto,
       };
 
-      static Video fromSnap(DocumentSnapShot snap){
-        var snapshot = snap.data() as Map<String,dynamic>;
-        return Video(
-          username: snapshot["username"],
-          uid: snapshot["uid"],
-          id: snapshot["id"],
-          likes: snapshot["likes"],
-          commentCount: snapshot["commentCount"],
-          shareCount: snapshot["shareCount"],
-          songName: snapshot["songName"],
-          caption: snapshot["caption"],
-          videoUrl: snapshot["videoUrl"],
-          thumbnail: snapshot["thumbnail"],
-          profilePhoto: snapshot["profilePhoto"],
-        );
+  static Video fromSnap(DocumentSnapshot snap) {
+    var snapshot = snap.data() as Map<String, dynamic>;
 
-
-      }
-
+    return Video(
+      username: snapshot["username"],
+      uid: snapshot["uid"],
+      id: snapshot["id"],
+      likes: snapshot["likes"],
+      commentCount: snapshot["commentCount"],
+      shareCount: snapshot["shareCount"],
+      songName: snapshot["songName"],
+      caption: snapshot["caption"],
+      videoUrl: snapshot["videoUrl"],
+      thumbnail: snapshot["thumbnail"],
+      profilePhoto: snapshot["profilePhoto"],
+    );
+  }
 }

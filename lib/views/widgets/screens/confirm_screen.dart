@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
+import 'package:reel_stream/controllers/upload_video_controller.dart';
 import 'package:reel_stream/views/widgets/text_input_field.dart';
 import 'package:video_player/video_player.dart';
 import 'package:get/get.dart';
@@ -98,17 +99,28 @@ class _ConfirmScreenState extends State<ConfirmScreen> {
 
             const SizedBox(height: 10),
 
-            ElevatedButton(
-              onPressed: () => uploadVideoController.uploadVideo(
-                _songController.text,
-                _captionController.text,
-                widget.videoPath,
-              ),
-              child: const Text(
-                "Share",
-                style: TextStyle(fontSize: 20, color: Colors.white),
-              ),
-            ),
+       ElevatedButton(
+  onPressed: () {
+    if (kIsWeb) {
+      uploadVideoController.uploadVideo(
+        songName: _songController.text,
+        caption: _captionController.text,
+        videoBytes: widget.videoBytes,
+      );
+    } else {
+      uploadVideoController.uploadVideo(
+        songName: _songController.text,
+        caption: _captionController.text,
+        videoPath: widget.videoPath,
+      );
+    }
+  },
+  child: const Text(
+    "Share",
+    style: TextStyle(fontSize: 20, color: Colors.white),
+  ),
+),
+
           ],
         ),
       ),
