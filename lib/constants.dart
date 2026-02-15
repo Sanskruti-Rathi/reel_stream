@@ -6,10 +6,10 @@ import 'package:reel_stream/controllers/auth_controller.dart';
 import 'package:reel_stream/views/widgets/screens/add_video_screen.dart';
 import 'package:reel_stream/views/widgets/screens/auth/video_screen.dart';
 
-const  pages =[
+List pages =[
   VideoScreen(),
   Text("Search Screen"),
-  AddVideoScreen(),
+  const AddVideoScreen(),
   Text("Messages Screen"),
   Text("Profile Screen"),
 

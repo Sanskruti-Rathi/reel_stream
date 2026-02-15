@@ -19,6 +19,8 @@ class AuthController extends GetxController {
 
 
 Uint8List? get profilePhoto => _pickedImage.value;
+User get user => _user.value!;
+
 
    @override
   void onReady() {
