@@ -1,12 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:reel_stream/constants.dart';
+import 'package:reel_stream/controllers/auth_controller.dart';
 import 'package:reel_stream/models/video.dart';
 
 class VideoController extends GetxController {
 
   final Rx<List<Video>> _videoList = Rx<List<Video>>([]);
   List<Video> get videoList => _videoList.value;
+  final AuthController authController = Get.find<AuthController>();
 
   @override
   void onInit() {

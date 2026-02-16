@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:reel_stream/controllers/auth_controller.dart';
 import 'package:reel_stream/controllers/video_controller.dart';
 import 'package:reel_stream/views/widgets/circle_animatin.dart';
+import 'package:reel_stream/views/widgets/screens/comment_screen.dart';
 import 'package:reel_stream/views/widgets/video_player_item.dart';
 
 class VideoScreen extends StatelessWidget {
   VideoScreen({super.key});
 
   final VideoController videoController = Get.put(VideoController());
+  final AuthController authController = Get.find<AuthController>();
 
   buildProfile(String profilePhoto) {
     return SizedBox(
@@ -151,8 +154,16 @@ class VideoScreen extends StatelessWidget {
 
                                 Column(
                                   children: [
-                                    const Icon(Icons.comment,
-                                        size: 40, color: Colors.white),
+                                    InkWell(
+                                      onTap: () => Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                          builder: (context) =>
+                                          CommentScreen(id: video.id,),
+                                         ),
+                                         ),
+                                      child: const Icon(Icons.comment,
+                                          size: 40, color: Colors.white),
+                                    ),
                                     const SizedBox(height: 7),
                                     Text(video.commentCount.toString(),
                                         style: const TextStyle(
