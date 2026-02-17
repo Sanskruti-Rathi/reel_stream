@@ -122,6 +122,9 @@ void  loginUser (String email,String password) async {
     Get.snackbar("Error logging in",e.toString());
   }
 }
+ void signOut() async {
+  await firebaseAuth.signOut();
+}
 }
     
   
