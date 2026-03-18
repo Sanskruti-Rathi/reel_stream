@@ -54,7 +54,6 @@ lib/
 - 🔔 Push Notifications  
 - 🎯 Video recommendation algorithm  
 - 🎵 Add music/sound support  
-- 🌙 Dark Mode  
 - 📊 Analytics dashboard  
 - 🚀 Performance optimization
 
@@ -66,7 +65,7 @@ lib/
 🔗 GitHub: https://github.com/Sanskruti-Rathi  
 💼 LinkedIn: https://linkedin.com/in/sanskruti-rathi  
 
-##⭐ Show your support
+⭐ Show your support
 
 If you like this project, give it a ⭐ on GitHub!
 
